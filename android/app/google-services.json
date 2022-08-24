@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746761732099",
+    "project_id": "first-9aa12",
+    "storage_bucket": "first-9aa12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746761732099:android:8c7fdb58de63ea839a8e36",
+        "android_client_info": {
+          "package_name": "com.example.docter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746761732099-e5160lhjbg758bkj8v6c00tkshtrl3m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvVi04pMLxh9pKb3Q6gKkuCG75aRS18Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746761732099-e5160lhjbg758bkj8v6c00tkshtrl3m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
