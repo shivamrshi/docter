@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:docter/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
@@ -14,9 +15,23 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
-  get floatingActionButtonLocation => null;
+  final emailController= TextEditingController();
+  final passwordController= TextEditingController();
+
+  Future signIn() async{
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email:emailController.text.trim(),
+      password: passwordController.text.trim()
+      );
+  }
+ // get floatingActionButtonLocation => null;
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
@@ -50,6 +65,7 @@ class _LoginpageState extends State<Loginpage> {
             padding:
                 const EdgeInsets.only(left: 32, right: 32, top: 4, bottom: 1),
             child: TextFormField(
+              controller: emailController,
               cursorColor: Colors.black,
               decoration: const InputDecoration(
                 hintText: "Enter email id",
@@ -69,6 +85,8 @@ class _LoginpageState extends State<Loginpage> {
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32, bottom: 16),
             child: TextFormField(
+              
+              controller: passwordController,
               obscureText: true,
               decoration: const InputDecoration(
                 hintText: "Enter passward",
@@ -101,44 +119,72 @@ class _LoginpageState extends State<Loginpage> {
           ),
 
           //sign in
+           SizedBox(
+            height: MediaQuery.of(context).size.height * 0.025,
+          ),
+           Padding(
+             padding: const EdgeInsets.only(left:32,right: 32),
+             child: ElevatedButton.icon(
+              style:ElevatedButton.styleFrom(primary:Color.fromARGB(226, 89, 84, 243),
+               
+                minimumSize: Size.fromHeight(45),
+              ),
+              icon: const Icon(Icons.lock_open,size:32,color:Colors.white ,),
+              label:const Text("Signin",
+              style: TextStyle(fontSize:24,fontWeight: FontWeight.bold,color: Colors.white,),
+              ),
+              onPressed:signIn,
+          ),
+           ),
 
-          Padding(
+         SizedBox(
+            height: MediaQuery.of(context).size.height * 0.01,
+          ),
+      /*  Padding(
             padding: const EdgeInsets.only(
                 right: 120, left: 120, top: 14, bottom: 16),
-            child: mum(
-              child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(226, 89, 84, 243),
-                    borderRadius: BorderRadius.circular(20),
+            child: Center(
+         child:Column(
+          mainAxisAlignment:MainAxisAlignment.center,
+          children:[
             
-                    /*  boxShadow: const [
-                     //dark shadow bottom right
-                     BoxShadow(
-                      color:Colors.grey,
-                      blurRadius: 23,
-                      offset:Offset(5, 5)
-                     ),
-            
-                     BoxShadow(
-                      color:Colors.white,
-                      blurRadius: 23,
-                      offset:Offset(-5,-5)
-                     )
-                    ]*/
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Sign in",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
+         
+            GestureDetector(
+               onTap:signIn ,
+              child: MaterialButton(onPressed: () => signIn,
+              color:const Color.fromARGB(226, 89, 84, 243),
+              child:const Text("Sign in",style: TextStyle(color:Colors.white,
+              fontWeight: FontWeight.bold,
+               fontSize: 22,),),
+              ),
+            )
+
+         ]
+         ),
+       ),
+       ),*/
+    /*   mum(
+              child: GestureDetector(
+                onTap:signIn ,
+                child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(226, 89, 84, 243),
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                  )),
-            ),
-          ),
+                    child: const Center(
+                      child: Text(
+                        "Sign in",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )),
+              ),
+            ),*/
+          
 
           //not a user ? Register
           Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
@@ -189,3 +235,5 @@ class _LoginpageState extends State<Loginpage> {
         );
   }
 }
+
+

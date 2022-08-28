@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'loginpage.dart';
-void main() //async
+import 'main_page.dart';
+void main() async
  { 
- // WidgetsFlutterBinding.ensureInitialized();
- //n await Firebase.initializeApp();
+ WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       
     debugShowCheckedModeBanner: false,
-    home: Loginpage(),
+    home:  mainpage(),
     );
   }
 }
