@@ -138,7 +138,7 @@ class _LoginpageState extends State<Loginpage> {
            ),
 
          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
       /*  Padding(
             padding: const EdgeInsets.only(
@@ -197,7 +197,7 @@ class _LoginpageState extends State<Loginpage> {
           ]),
           // text
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
+            height: MediaQuery.of(context).size.height * 0.01,
           ),
           const Text("---Or continue with---", style: TextStyle(fontSize: 18)),
            SizedBox(
