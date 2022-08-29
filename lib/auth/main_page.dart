@@ -1,11 +1,10 @@
-import 'package:docter/home.dart';
+import 'package:docter/auth/auth_page.dart';
+import 'package:docter/pages/home.dart';
 import "package:flutter/material.dart";
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'loginpage.dart';
-
-class mainpage extends StatelessWidget {
-  const mainpage({Key? key}) : super(key: key);
+class Mainpage extends StatelessWidget {
+  const Mainpage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +13,9 @@ class mainpage extends StatelessWidget {
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return const home();
+                return const Home();
               } else {
-                return Loginpage();
+                return const AuthPage();
               }
             }));
   }

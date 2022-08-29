@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'loginpage.dart';
-import 'main_page.dart';
-void main() async
- { 
- WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp();
+import 'auth/auth_page.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -19,14 +17,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.light,
       theme: ThemeData(
-         primarySwatch: Colors.grey,
-         fontFamily: GoogleFonts.lato().fontFamily,
-      //primaryTextTheme: GoogleFonts.latoTextTheme()
+        primarySwatch: Colors.grey,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        //primaryTextTheme: GoogleFonts.latoTextTheme()
       ),
-      
-    debugShowCheckedModeBanner: false,
-    home:  mainpage(),
+      debugShowCheckedModeBanner: false,
+      home: const AuthPage(),
     );
   }
 }
-
