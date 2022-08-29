@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.3.4
   google_fonts: ^3.0.1
-
+  email_validator: ^2.0.1
 
   
 dev_dependencies:

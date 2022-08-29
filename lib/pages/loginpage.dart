@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:docter/pages/home.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
@@ -75,12 +76,10 @@ class _LoginpageState extends State<Loginpage> {
               labelText: "Email id",
               // iconColor:Color.fromARGB(255, 96, 96, 197),
             ),
-          /*  validator: (value) {
-              if (value!.isEmpty) {
-                return "email id can not be empty";
-              }
-              return null;
-            },*/
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (email) =>
+                 email !=null && !EmailValidator.validate(email)
+                 ? "Enter a valid email": null,
           ),
         ),
         const SizedBox(height: 2),
@@ -94,15 +93,9 @@ class _LoginpageState extends State<Loginpage> {
               hintText: "Enter passward",
               labelText: "passward",
             ),
-           validator: (value) {
-              if (value!.isEmpty) {
-                return "passwrd can not be empty";
-              } else if (value.length < 6) {
-                return "passward length should be atleast 6";
-              }
-
-              return null;
-            },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+               validator: (value) => value != null && value.length < 6
+               ?"Enter min. 6 characters" :null,
           ),
         ),
         //forget passward
