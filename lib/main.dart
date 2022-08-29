@@ -1,7 +1,7 @@
+import 'package:docter/auth/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'auth/auth_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         //primaryTextTheme: GoogleFonts.latoTextTheme()
       ),
       debugShowCheckedModeBanner: false,
-      home: const AuthPage(),
+      home:Mainpage(),
     );
   }
 }

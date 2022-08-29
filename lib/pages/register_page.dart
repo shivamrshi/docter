@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future signUp() async {
-    if (passwardconfirmed()) {
+   if (passwardconfirmed()) {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
@@ -126,7 +126,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         // confirm passward
-        Padding(
+       Padding(
           padding: const EdgeInsets.only(left: 32, right: 32, bottom: 16),
           child: TextFormField(
             controller: _confirmpasswardController,
