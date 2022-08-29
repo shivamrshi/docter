@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:docter/pages/forgetpw_page.dart';
 import 'package:docter/pages/home.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -30,7 +30,7 @@ class _LoginpageState extends State<Loginpage> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
-    
+
     super.dispose();
   }
 
@@ -42,13 +42,12 @@ class _LoginpageState extends State<Loginpage> {
           child: Column(children: [
         //image or Any text fo user guidence.
         mum(
-          
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Image.asset(
               "assets/images/login.png",
               fit: BoxFit.cover,
-            height: 250,
+              height: 250,
             ),
           ),
         ),
@@ -76,10 +75,11 @@ class _LoginpageState extends State<Loginpage> {
               labelText: "Email id",
               // iconColor:Color.fromARGB(255, 96, 96, 197),
             ),
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (email) =>
-                 email !=null && !EmailValidator.validate(email)
-                 ? "Enter a valid email": null,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (email) =>
+                email != null && !EmailValidator.validate(email)
+                    ? "Enter a valid email"
+                    : null,
           ),
         ),
         const SizedBox(height: 2),
@@ -93,9 +93,10 @@ class _LoginpageState extends State<Loginpage> {
               hintText: "Enter passward",
               labelText: "passward",
             ),
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-               validator: (value) => value != null && value.length < 6
-               ?"Enter min. 6 characters" :null,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (value) => value != null && value.length < 6
+                ? "Enter min. 6 characters"
+                : null,
           ),
         ),
         //forget passward
@@ -103,12 +104,19 @@ class _LoginpageState extends State<Loginpage> {
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              Text("Forget passward",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16)),
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ForgotPasswordPage();
+                  }));
+                },
+                child: Text("Forget passward",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16)),
+              ),
             ],
           ),
         ),
@@ -117,7 +125,7 @@ class _LoginpageState extends State<Loginpage> {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.025,
         ),
-        
+
         Padding(
           padding: const EdgeInsets.only(left: 32, right: 32),
           child: ElevatedButton.icon(
@@ -174,7 +182,7 @@ class _LoginpageState extends State<Loginpage> {
                 onPressed: () {},
                 icon: Image.asset("assets/images/google.png",
                     height: 33, width: 33),
-                label:const Text("Google"),
+                label: const Text("Google"),
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
               ),
@@ -186,7 +194,7 @@ class _LoginpageState extends State<Loginpage> {
                 onPressed: () {},
                 icon: Image.asset("assets/images/facebook.png",
                     height: 33, width: 33),
-                label:const Text("Facbook"),
+                label: const Text("Facbook"),
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
               ),
