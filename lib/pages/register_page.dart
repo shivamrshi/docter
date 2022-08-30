@@ -24,9 +24,9 @@ class _RegisterPageState extends State<RegisterPage> {
     _confirmpasswardController.dispose();
     super.dispose();
   }
-   Future signUp() async {
 
-   if (passwardconfirmed()) {
+  Future signUp() async {
+    if (passwardconfirmed()) {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
@@ -48,46 +48,45 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-          child: Column(
-              children: [
-                  //image or Any text fo user guidence.
-                  SizedBox(
+        child: Column(children: [
+          //image or Any text fo user guidence.
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.025,
-                  ),
-                  ClipRRect(
+          ),
+          ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Image.asset(
               "assets/images/health-report.png",
               // fit: BoxFit.cover,
               height: 150,
             ),
-                  ),
-          
-                  SizedBox(
+          ),
+
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.025,
             // width: MediaQuery.of(context).size.width * 0.5,
-                  ),
-                  const Text(
+          ),
+          const Text(
             "Your Welcome",
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w400,
             ),
-                  ),
-                  // text 2
-                  const Text(
+          ),
+          // text 2
+          const Text(
             "Register below with your details!",
             style: TextStyle(
               fontSize: 18,
               // fontWeight: FontWeight.w400,
             ),
-                  ),
-          
-                  //email textfeild
-                  SizedBox(
+          ),
+
+          //email textfeild
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
-                  ),
-                  Padding(
+          ),
+          Padding(
             padding:
                 const EdgeInsets.only(left: 32, right: 32, top: 4, bottom: 5),
             child: TextFormField(
@@ -100,14 +99,14 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (email) =>
-                 email !=null && !EmailValidator.validate(email)
-                 ? "Enter a valid email": null,
-                
+                  email != null && !EmailValidator.validate(email)
+                      ? "Enter a valid email"
+                      : null,
             ),
-                  ),
-          
-                  //passward textfeild
-                  Padding(
+          ),
+
+          //passward textfeild
+          Padding(
             padding: const EdgeInsets.only(left: 32, right: 32, bottom: 5),
             child: TextFormField(
               controller: _passwordController,
@@ -117,14 +116,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: "passward",
               ),
               autovalidateMode: AutovalidateMode.onUserInteraction,
-               validator: (value) => value != null && value.length < 6
-               ?"Enter min. 6 characters" :null,
-              
-                
+              validator: (value) => value != null && value.length < 6
+                  ? "Enter min. 6 characters"
+                  : null,
             ),
-                  ),
-                  // confirm passward
-                 Padding(
+          ),
+          // confirm passward
+          Padding(
             padding: const EdgeInsets.only(left: 32, right: 32, bottom: 16),
             child: TextFormField(
               controller: _confirmpasswardController,
@@ -133,21 +131,22 @@ class _RegisterPageState extends State<RegisterPage> {
                 hintText: "Confirm Passward",
                 labelText: "Confirm passward",
               ),
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-               validator: (value) => value != null && value.length < 6
-               ?"Enter min. 6 characters" :null,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) => value != null && value.length < 6
+                  ? "Enter min. 6 characters"
+                  : null,
             ),
-                  ),
-                  //sign up
-                  SizedBox(
+          ),
+          //sign up
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.025,
-                  ),
-                  Padding(
+          ),
+          Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(226, 89, 84, 243),
-                minimumSize: Size.fromHeight(45),
+                primary: const Color.fromARGB(255, 25, 221, 48),
+                minimumSize: const Size.fromHeight(45),
               ),
               icon: const Icon(
                 Icons.lock_open,
@@ -164,14 +163,14 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               onPressed: signUp,
             ),
-                  ),
-          
-                  SizedBox(
+          ),
+
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
-                  ),
-          
-                  //not a user ? Register
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          ),
+
+          //not a user ? Register
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             const Text("You have an account, ", style: TextStyle(fontSize: 18)),
             GestureDetector(
               onTap: widget.showLoginPage,
@@ -181,45 +180,28 @@ class _RegisterPageState extends State<RegisterPage> {
                       fontWeight: FontWeight.bold,
                       fontSize: 18)),
             ),
-                  ]),
-                  // text
-                  SizedBox(
+          ]),
+          // text
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
-                  ),
-                  const Text("---Or continue with---", style: TextStyle(fontSize: 18)),
-                  SizedBox(
-            height: MediaQuery.of(context).size.height * 0.035,
-                  ),
-                  Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: Row(
-              children: [
-                FloatingActionButton.extended(
-                  onPressed: () {},
-                  icon: Image.asset("assets/images/google.png",
-                      height: 33, width: 33),
-                  label: const Text("Google"),
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                ),
-                SizedBox(
-                  //height: MediaQuery.of(context).size.height * 0.01,
-                  width: MediaQuery.of(context).size.width * 0.19,
-                ),
-                FloatingActionButton.extended(
-                  onPressed: () {},
-                  icon: Image.asset("assets/images/facebook.png",
-                      height: 33, width: 33),
-                  label: const Text("Facbook"),
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                ),
-              ],
-            ),
-                  )
-                ]),
-          
           ),
+          const Text("---Or continue with---", style: TextStyle(fontSize: 18)),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.035,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32, right: 32),
+            child: FloatingActionButton.extended(
+              onPressed: () {},
+              icon: Image.asset("assets/images/google.png",
+                  height: 33, width: 33),
+              label: const Text("Sign in with Google"),
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+            ),
+          )
+        ]),
+      ),
     );
   }
 }

@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
-            color: const Color.fromARGB(226, 89, 84, 243),
+            color: const Color.fromARGB(255, 25, 221, 48),
             child: const Text("Sign out"),
           )
         ]),

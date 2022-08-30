@@ -111,7 +111,7 @@ class _LoginpageState extends State<Loginpage> {
                     return ForgotPasswordPage();
                   }));
                 },
-                child: Text("Forget passward",
+                child: const Text("Forget passward",
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
@@ -130,8 +130,8 @@ class _LoginpageState extends State<Loginpage> {
           padding: const EdgeInsets.only(left: 32, right: 32),
           child: ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(226, 89, 84, 243),
-              minimumSize: Size.fromHeight(45),
+              primary: const Color.fromARGB(255, 25, 221, 48),
+              minimumSize: const Size.fromHeight(45),
             ),
             icon: const Icon(
               Icons.lock_open,
@@ -175,30 +175,14 @@ class _LoginpageState extends State<Loginpage> {
           height: MediaQuery.of(context).size.height * 0.035,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: Row(
-            children: [
-              FloatingActionButton.extended(
-                onPressed: () {},
-                icon: Image.asset("assets/images/google.png",
-                    height: 33, width: 33),
-                label: const Text("Google"),
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-              ),
-              SizedBox(
-                //height: MediaQuery.of(context).size.height * 0.01,
-                width: MediaQuery.of(context).size.width * 0.19,
-              ),
-              FloatingActionButton.extended(
-                onPressed: () {},
-                icon: Image.asset("assets/images/facebook.png",
-                    height: 33, width: 33),
-                label: const Text("Facbook"),
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-              ),
-            ],
+          padding: const EdgeInsets.only(left: 32,right:32),
+          child: FloatingActionButton.extended(
+            onPressed: () {},
+            icon:
+                Image.asset("assets/images/google.png", height: 33, width: 33),
+            label: const Text("Sign in with Google"),
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
           ),
         )
       ])),
