@@ -170,9 +170,9 @@ class _LoginpageState extends State<Loginpage> {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
-        const Text("---Or continue with---", style: TextStyle(fontSize: 18)),
+        const Text("-----  Or  -----", style: TextStyle(fontSize: 18)),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.035,
+          height: MediaQuery.of(context).size.height * 0.025,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 32,right:32),

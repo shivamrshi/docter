@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Image.asset(
               "assets/images/health-report.png",
               // fit: BoxFit.cover,
-              height: 150,
+              height: 50,
             ),
           ),
 
@@ -81,11 +81,34 @@ class _RegisterPageState extends State<RegisterPage> {
               // fontWeight: FontWeight.w400,
             ),
           ),
-
-          //email textfeild
-          SizedBox(
+          // username textfeild
+           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
+           Padding(
+             padding: const EdgeInsets.only(left:32,right:32,bottom:5),
+             child: TextFormField(
+                            decoration: const InputDecoration(
+                              hintText: "Enter username",
+                              labelText: "Username",
+                            ),
+                            
+                          ),
+           ),
+           // phone number
+
+            Padding(
+             padding: const EdgeInsets.only(left:32,top:4,right:32,bottom:5),
+             child: TextFormField(
+                            decoration: const InputDecoration(
+                              hintText: "Enter username",
+                              labelText: "Username",
+                            ),
+                            
+                          ),
+           ),
+          //email textfeild
+         
           Padding(
             padding:
                 const EdgeInsets.only(left: 32, right: 32, top: 4, bottom: 5),
@@ -123,7 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           // confirm passward
           Padding(
-            padding: const EdgeInsets.only(left: 32, right: 32, bottom: 16),
+            padding: const EdgeInsets.only(left: 32, right: 32),
             child: TextFormField(
               controller: _confirmpasswardController,
               obscureText: true,
@@ -185,9 +208,9 @@ class _RegisterPageState extends State<RegisterPage> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
           ),
-          const Text("---Or continue with---", style: TextStyle(fontSize: 18)),
+          const Text("-----  Or  -----", style: TextStyle(fontSize: 18)),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.035,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
