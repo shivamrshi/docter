@@ -101,8 +101,8 @@ class _RegisterPageState extends State<RegisterPage> {
              padding: const EdgeInsets.only(left:32,top:4,right:32,bottom:5),
              child: TextFormField(
                             decoration: const InputDecoration(
-                              hintText: "Enter username",
-                              labelText: "Username",
+                              hintText: "Enter phone number",
+                              labelText: "Phone number",
                             ),
                             
                           ),
